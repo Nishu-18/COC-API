@@ -1,12 +1,13 @@
-import express from 'express';
-import axios from 'axios';
-import ejs from 'ejs';
-import bodyParser from 'body-parser';
+const dotenv = require('dotenv').config();
+const express = require('express');
+const axios = require('axios');
+const ejs = require('ejs');
+const bodyParser = require('body-parser');
 const app = express();
 app.set("view engine", 'ejs');
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
-const yourBearerToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImMyMjg3NjdjLWRhMGEtNGYxNC1hYjlhLTcwNjE0MDljODZlYiIsImlhdCI6MTY5MzkwMjI2NSwic3ViIjoiZGV2ZWxvcGVyLzIyODI1NmMwLTE5NjYtNDFlNy00NTZjLWEwOTE2NjkxNzMzYyIsInNjb3BlcyI6WyJjbGFzaCJdLCJsaW1pdHMiOlt7InRpZXIiOiJkZXZlbG9wZXIvc2lsdmVyIiwidHlwZSI6InRocm90dGxpbmcifSx7ImNpZHJzIjpbIjQ5LjM2LjE4My4yNiJdLCJ0eXBlIjoiY2xpZW50In1dfQ.-bagTcZh32TF5Mb1ri3wo38W7jl4iPDTdUT-twjUgeomaGjlLUhtEi_Gae2H4hXGxGWA7D2rXmc-fm_q5ZDIog";
+const yourBearerToken = process.env.BEARER_TOKEN;
 const config = {
     headers: { Authorization: `Bearer ${yourBearerToken}` },
 };

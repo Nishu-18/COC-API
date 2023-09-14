@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        background-color: rgba(23, 29, 36, 1);
+    }
+    
+    .personal {
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+    
+    h2 {
+        color: #dddddd;
+    }
+    
+    p {
+        color: darkgray;
+        font-weight: bold;
+    }
+    
+    .clan_name {
+        margin-top: 100px;
+    }
+    
+    .flex {
+        display: flex;
+        align-items: center;
+    }
+    
+    .league {
+        margin-left: 300px;
+        margin-bottom: 250px;
+        align-self: center;
+        flex-shrink: 2;
+    }
+    
+    .flex-league {
+        display: flex;
+        align-items: center;
+    }
+    
+    .trophies {
+        color: #dddddd;
+        margin-left: 40px;
+    }
+    
+    .clan_logo {
+        margin-left: 25px;
+    }
+    
+    .title {
+        color: white;
+        font-weight: lighter;
+        margin-left: 800px;
+        position: relative;
+        bottom: 250px;
+    }
+    
+    .title-corresponding {
+        margin-left: 100px;
+    }
+    
+    .tag {
+        margin-left: 20px;
+    }
+    
+    .clanTag {
+        margin-left: 20px;
+    }
+    
+    .vl {
+        border-left: 3px solid grey;
+        height: 550px;
+        margin-left: 200px;
+    }
+    
+    .space {
+        margin-right: 50;
+    }
+</style>
+
+<body>
+    <div class="flex">
+        <div class="personal">
+            <h2>
+                <%=name%>
+            </h2>
+            <p class="tag">
+                <%=tag%>
+            </p>
+            <input type="text" value="TH <%= thLevel %> " style="background-color: rgba(23,29,36,1); color: white; width: 80px; height: 20px; text-align: center; font-weight: bolder; border: 1px solid grey; margin-left: 20px;">
+            <%   if(locals.clan_name && locals.clanTag){ %>
+                <h2 class="clan_name">
+                    <%= clan_name %>
+                </h2>
+                <p class="clanTag">
+                    <%= clanTag %>
+                </p>
+                <img src="<%= clan_logo %>" alt="" class="clan_logo">
+                <%   }  else{ %>
+                    <h2 class="clan_name">
+                        <%= clan_name %>
+                    </h2>
+
+                    <%    } %>
+
+        </div>
+
+        <%  if(locals.league && locals.league_img){ %>
+            <div class="vl"></div>
+            <div class="league">
+                <div class="flex-league">
+                    <img src="<%= league_img %>" alt="">
+                    <div style="border: 1px solid grey;">
+                        <h2>
+                            <%= league %>
+                        </h2>
+                        <h3 class="trophies">
+                            Trophies:
+                            <%= trophies %>
+                        </h3>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <%  }else{ %>
+                <div class="vl"></div>
+                <div class="league">
+
+                    <div style="border: 1px solid grey;" class="space">
+                        <h2>
+                            <%= league %>
+                        </h2>
+                        <h3 class="trophies">
+                            Trophies:
+                            <%= trophies %>
+                        </h3>
+                    </div>
+
+
+                </div>
+                <% } %>
+
+
+
+
+
+
+
+    </div>
+    <div class="title">
+        <div class="flex-league">
+            <div class="title-items">
+                <h3>Level</h3>
+                <h3>Capital Contribution</h3>
+                <h3>Attack Won</h3>
+                <h3>Defense Won</h3>
+                <h3>War star won</h3>
+                <h3>Donation Given</h3>
+                <h3>Donation Received</h3>
+            </div>
+            <div class="title-corresponding">
+                <h3>
+                    <%= level %>
+                </h3>
+                <h3>
+                    <%= capital %>
+                </h3>
+                <h3>
+                    <%= attack %>
+                </h3>
+                <h3>
+                    <%= defense %>
+                </h3>
+                <h3>
+                    <%= war %>
+                </h3>
+                <h3>
+                    <%= dg %>
+                </h3>
+                <h3>
+                    <%= dr %>
+                </h3>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
